@@ -852,11 +852,15 @@ h3 {
     align-items: center;
   }
 }
-.footer__left {
-  margin-left: -25rem;
+@media (min-width: 1024px) {
+  .footer__left {
+    margin-left: -25rem;
+  }
 }
-.footer__right {
-  margin-right: -25rem;
+@media (min-width: 1024px) {
+  .footer__right {
+    margin-right: -25rem;
+  }
 }
 .footer__nav-list {
   padding: 0;
