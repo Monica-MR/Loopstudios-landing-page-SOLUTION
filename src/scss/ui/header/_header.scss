@@ -1,0 +1,136 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m; 
+
+.header{
+    padding: 4rem 2rem;
+    background-image: url(../img/mobile/image-hero.jpg);
+    background-size: cover ;
+
+    @include m.tablet {
+        background-image: url(../img/desktop/image-hero.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include m.tablet {
+            margin-top: 1.5rem;
+        }
+    }
+
+    &__logo{
+        max-width: 16rem;
+        position: absolute;
+        left: 2rem;
+        top: 4rem;
+        z-index: 2;
+
+        @include m.tablet {
+            max-width: 18rem;
+            position: unset;
+        }
+    }
+
+    &__slogan{
+        margin: 15rem 0 20rem 0;
+        text-transform: uppercase;
+        font-family: v.$fuente_secundaria;
+        color: v.$white;
+        font-weight: 300;
+        padding: 2rem 3rem 2rem 2rem;
+        border: 1.5px solid v.$white;
+
+        @include m.tablet {
+            width: 55%;
+            margin-left: 7rem;
+            font-size: 5rem;
+        }
+
+        @include m.desktop {
+            width: 46%;
+            margin: 13rem 0 8rem 10%;
+            font-size: 6rem;
+        }
+        @include m.desktopLg{
+            font-size: 7rem;
+        }
+    }
+}
+
+.navegacion{
+    
+    &__list{
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        padding: 15rem 0 0 3rem;
+        list-style: none;
+        left: 0;
+        background-color: v.$black;
+        display: block;
+        width: 100%;
+        height: 100vh;
+
+        @include m.tablet {
+            position: unset;
+            background-color: unset;
+            width: auto;
+            height: auto;
+            padding: 0;
+            visibility: visible;
+            opacity: 1;
+            display: flex;
+        }
+    }
+    &__elemento{
+        margin-bottom: 2rem;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+        @include m.tablet {
+            margin-bottom: 0;
+        }
+    }
+    &__link{
+        color: v.$gray; 
+        text-transform: uppercase;
+        font-size: 2.2rem;
+        font-weight: 300;
+        font-family: v.$fuente_secundaria;
+        @include m.tablet {
+            text-transform: unset;
+            color: v.$white;
+            font-family: v.$fuente_principal;
+            margin-left: 4rem;
+            font-size: 1.4rem;
+            position: relative;
+            &:hover::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 40%;
+                height: .3rem;
+                background-color: v.$white;
+                bottom: -.7rem;
+                left: 30%;
+            }
+        }
+    }
+    &__mobile-menu, &__close{
+        position: absolute;
+        right: 3rem;
+        top: 4.5rem;
+        cursor: pointer;
+        @include m.tablet {
+            display: none;
+        }
+    }
+    &__close{
+        z-index: 2;
+    }
+    
+}

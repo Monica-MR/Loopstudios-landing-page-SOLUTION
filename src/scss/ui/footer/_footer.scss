@@ -1,0 +1,90 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m; 
+
+.footer{
+    background-color: v.$black;
+    text-align: center;
+    margin-top: 5rem;
+    padding: 6rem 0;
+    
+    @include m.desktop {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__left{
+        margin-left: -25rem;
+    }
+    &__right{
+        margin-right: -25rem;
+    }
+
+    &__nav-list{
+        padding: 0;
+        @include m.desktop {
+            display: flex;
+        }
+    }
+
+    &__logo{
+        margin: 0 auto 5rem auto;
+        @include m.desktop {
+            margin: 0;
+        }
+    }
+    &__nav-elemento{
+        margin-top: 2.5rem;
+    }
+    &__nav-link{
+        color: v.$white;
+        font-size: 1.8rem;
+        position: relative;
+        @include m.desktop {
+            margin-right: 2rem;
+            &:hover::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 40%;
+                height: .3rem;
+                background-color: v.$white;
+                bottom: -.7rem;
+                left: 30%;
+            }
+        }
+    }
+    &__copyright{
+        color: v.$gray;
+        margin-top: 2.5rem;
+        margin-bottom: 0;
+        @include m.desktop {
+            margin-top: 4rem;
+        }
+    }
+}
+
+.social{
+    margin: 5rem auto 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 50%;
+    @include m.desktop {
+        margin: 0 0 0 auto;
+    }
+    &__link{
+        @include m.desktop {
+            position: relative;
+            &:hover::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 40%;
+                height: .3rem;
+                background-color: v.$white;
+                bottom: -.7rem;
+                left: 30%;
+            }
+        }
+    }
+} 

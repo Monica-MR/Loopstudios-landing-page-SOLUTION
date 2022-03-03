@@ -1,0 +1,101 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.creations{
+    &__header{
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+        @include m.desktop {
+            display: flex;
+            justify-content: space-between; 
+        }
+    }
+    &__heading{
+        text-align: center;
+    }
+    &__link{
+        visibility: hidden;
+        text-transform: uppercase;
+            color: v.$black;
+            padding: .8rem 3rem;
+            border: 1.5px solid v.$black;
+            font-size: 1.5rem;
+            letter-spacing: .5rem;
+            transition: background-color 200ms ease-in-out;
+            &:hover{
+                cursor: pointer;
+                color: v.$white;
+                background-color: v.$black;
+            }
+        @include m.desktop {
+            visibility: visible;
+        }
+        &--bottom{
+            visibility: visible;
+            margin: 5rem 0 5rem 30%;
+            text-align: center;
+            display: inline-block;
+            @include m.desktop {
+                visibility: hidden;
+            }
+        }
+
+    }
+
+    &__grid{
+        @include m.grid(1,2rem);
+        @include m.tablet{
+            @include m.grid(2, 2rem);
+        }
+        @include m.desktop{
+            @include m.grid(4, 2rem);
+        }
+    }
+}
+
+.creation{
+    position: relative;
+    &__imagen{
+        aspect-ratio: 9/3 ;
+        background-size: cover;
+        @include m.desktop {
+            aspect-ratio: 6/11 ;
+        }
+    }
+
+    @for $i from 1 through 8{
+        $imagen: '../img/mobile/image-creation-'+ $i +'.jpg';
+        $imagen2: '../img/desktop/image-creation-'+ $i +'.jpg';
+
+        &:nth-child(#{$i}) &__imagen{
+            background-image: linear-gradient(to left, transparentize(v.$black, 1%) 0%, transparentize(v.$black, .3%) 100% ), url($imagen); 
+            @include m.desktop {
+                background-image: linear-gradient(to bottom, transparentize(v.$black, 1%) 0%, transparentize(v.$black, .3%) 100% ), url($imagen2); 
+            }
+
+            &:hover{
+                background-image: linear-gradient(to left, transparentize(v.$gray, .3%) 0% 100% ), url($imagen);
+                cursor: pointer;
+                @include m.desktop {
+                    background-image: linear-gradient(to bottom, transparentize(v.$gray, .3%) 0% 100% ), url($imagen2);
+                }
+            }
+        } 
+    }
+
+    &__heading{
+        position: absolute;
+        left: 2rem;
+        bottom: 1rem;
+        color: v.$white;
+        font-weight: 300;
+        max-width: 40%;
+        font-size: 2.5rem;
+        &:hover{
+            color: v.$white!important;
+        }
+    }
+    &:hover &__heading{
+        color: black;
+    }
+}
