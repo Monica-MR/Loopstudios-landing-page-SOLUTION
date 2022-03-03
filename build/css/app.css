@@ -435,7 +435,7 @@ h3 {
 }
 @media (min-width: 768px) {
   .header__barra {
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
   }
 }
 .header__logo {
@@ -477,6 +477,7 @@ h3 {
 @media (min-width: 1200px) {
   .header__slogan {
     font-size: 7rem;
+    margin: 13rem 0 11rem 10%;
   }
 }
 
@@ -564,6 +565,7 @@ h3 {
 @media (min-width: 1024px) {
   .about {
     position: relative;
+    margin-top: 16rem;
   }
 }
 .about__image {
@@ -617,6 +619,8 @@ h3 {
 }
 @media (min-width: 1024px) {
   .creations__header {
+    margin-top: 16rem;
+    margin-bottom: 7rem;
     display: flex;
     justify-content: space-between;
   }
@@ -854,12 +858,12 @@ h3 {
 }
 @media (min-width: 1024px) {
   .footer__left {
-    margin-left: -25rem;
+    margin-left: -15rem;
   }
 }
 @media (min-width: 1024px) {
   .footer__right {
-    margin-right: -25rem;
+    margin-right: -15rem;
   }
 }
 .footer__nav-list {
